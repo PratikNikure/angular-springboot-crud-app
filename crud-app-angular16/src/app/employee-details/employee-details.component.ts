@@ -16,12 +16,19 @@ export class EmployeeDetailsComponent implements OnInit {
 
  }
   ngOnInit(): void {
+
+    // this.id = this.route.snapshot.params['id'];
+
+    // this.employee= new Employee();
+    // this.employeService.getEmployeeById(this.id).subscribe(data =>{
+
+    // });/
     this.id = this.route.snapshot.params['id'];
 
-    this.employee= new Employee();
-    this.employeService.getEmployeeById(this.id).subscribe(data =>{
-
-    });
+  this.employee = new Employee();
+  this.employeService.getEmployeeById(this.id).subscribe(data => {
+    this.employee = data; // ✅ Assign the response to the employee object
+  }, error => console.log(error));
       
   }
 
